@@ -1,0 +1,339 @@
+body {
+  background: #f4f4f4;
+  font-family: sans-serif;
+	font-size: 15px;
+	color: #333;
+}
+
+a {
+  color: #1ea4bd;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover { color: #333; }
+
+.wrapper {
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header {
+  height: 100px;
+  position: relative;
+}
+
+  #header h1 {
+    width: 417px;
+    margin: 56px auto 0;
+  }
+
+  #header h1 a {
+    font-family: CodeLightRegular, Helvetica, Arial, sans-serif;
+    font-size: 74px;
+    font-weight: normal;
+    color: #1ea4bd;
+  }
+
+  #header h2 {
+    font-family: CodeLightRegular, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #666;
+    text-align: center;
+  }
+
+#content {
+  position: relative;
+  background: #fff;
+  padding: 32px;
+  box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+
+/*-- HOME PAGE --*/
+
+  #main {
+    float: left;
+    width: 520px;
+  }
+
+    #top { overflow: hidden; margin-bottom: 40px; }
+
+      #top #pic, #top #blurb { float: left; }
+
+      #top #pic img { /*border: 3px solid #333;*/ }
+
+      #top #blurb {
+        width: 392px;
+        margin-left: 20px;
+      }
+
+        #top #blurb p {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+    #bottom { clear: both; overflow: hidden; }
+
+      h3 {
+        font-size: 21px;
+        margin-bottom: 14px;
+      }
+
+      #bottom #services, #bottom #networks { float: left; width: 245px; }
+
+      #bottom #services { margin-right: 30px; }
+
+      #services ul li { margin-bottom: 8px; }
+
+      #networks ul li {
+        margin-bottom: 14px;
+        overflow: hidden;
+        line-height: 11px;
+      }
+
+      #networks ul li a {
+        color: #333;
+        font-weight: normal;
+      }
+
+      #networks ul li a span.social_icon {
+        background: url(../images/social_sprite.png) no-repeat;
+        width: 32px;
+        height: 32px;
+        text-indent: -9999px;
+        display: inline-block;
+        margin-right: 10px;
+        float: left;
+      }
+
+      #networks ul li a span.social_icon.behance { background-position: 0px 0px; }
+      #networks ul li a span.social_icon.github { background-position: 0px -32px; }
+      #networks ul li a span.social_icon.twitter { background-position: 0px -64px; }
+      #networks ul li a span.social_icon.email { background-position: 0px -96px; }
+
+      #networks ul li a:hover span.social_icon.behance { background-position: -32px 0px; }
+      #networks ul li a:hover span.social_icon.github { background-position: -32px -32px; }
+      #networks ul li a:hover span.social_icon.twitter { background-position: -32px -64px; }
+      #networks ul li a:hover span.social_icon.email { background-position: -32px -96px; }
+
+      #networks ul li a span.link { font-size: 11px; }
+
+      #networks ul li a span.service {
+        text-transform: uppercase;
+        /*letter-spacing: 1px;*/
+        line-height: 18px;
+      }
+
+
+  #sidebar {
+    float: right;
+    width: 260px;
+  }
+
+    #sidebar #recent {
+      margin-bottom: 36px;
+    }
+
+      #recent .day { margin-bottom: 18px; }
+
+      #recent .title { margin-bottom: 12px;}
+
+      #recent .title a {
+        font-size: 14px;
+      }
+
+      #recent .title a:hover { color: #333; }
+
+      #recent .meta {
+        font-size: 10px;
+        color: #666;
+        margin-bottom: 6px;
+        font-style: italic;
+      }
+      
+    #sidebar p.more { text-align: right; }
+
+    #sidebar p.more a {
+      font-size: 13px;
+    }
+
+
+/*-- BLOG --*/
+
+#content h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+#content h3 a {
+  color: #333;
+}
+
+#content p {
+  line-height: 21px;
+  margin-bottom: 12px;
+}
+
+#content article { margin-bottom: 64px; } 
+
+  #content article header { margin-bottom: 18px; }
+  
+    #content article header h3,
+    #content article header h2 { margin-bottom: 0; }
+
+    #content article header p.meta {
+      color: #999;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    
+    #content article header h2+p.meta { font-size: 12px; }
+
+    #content article header h3+p.meta { font-size: 11px; line-height: 18px; }
+
+
+/*-- ADMIN --*/
+
+table { width: 100%; }
+
+table td { 
+  padding: 0 16px 8px 0;
+  text-align: left;
+}
+
+table th { 
+  padding: 0 16px 12px 0;
+  text-align: left;
+}
+
+table th.actions,
+table td.actions {
+  text-align: center;
+  width: 100px;
+}
+
+
+/*-- FORMS --*/
+
+form .field { margin-bottom: 12px; }
+
+form .actions { margin: 24px 0; }
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  font-size: 13px;
+  border: 1px solid #e5e5e5;
+  padding: 6px 8px;
+}
+
+.new_post input[type="text"],
+.edit_post input[type="text"] { width: 680px; }
+
+textarea {
+  width: 680px;
+  height: 320px;
+}
+
+input[type="submit"],
+button {
+  border: none;
+  background: #333;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+input[type="submit"]:hover,
+button:hover { 
+  cursor: pointer;
+  background: #1ea4bd;
+}
+
+#footer {
+  clear: both;
+  margin: 24px 0 48px;
+  text-align: center;
+  font-size: 12px;
+  color: #807f80;
+}
+
+
+/*-- FLASHES AND ERRORS --*/
+
+#flash_notice, #flash_error, #flash_alert {
+  font-size: 13px;
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+#error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+#error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 13px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_messages p {
+  margin: 8px 10px;
+  font-weight: bold;
+}
+
+#error_messages ul {
+  margin: 0 10px;
+  list-style: disc inside;
+}
+
+#error_messages ul li {
+  margin-bottom: 4px;
+}
+
+/*--- FONT FACE ---*/
+
+@font-face {
+	font-family: 'CodeLightRegular';
+	src: url('../fonts/code_light-webfont.eot');
+	src: local('☺'), url('../fonts/code_light-webfont.woff') format('woff'), url('../fonts/code_light-webfont.ttf') format('truetype'), url('../fonts/code_light-webfont.svg#webfontfta53rBr') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

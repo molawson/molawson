@@ -1,0 +1,76 @@
+<div id="main">
+
+  <div id="top">
+    <h3>Hi, I'm Mo.</h3>
+    <div id="pic">
+      <img src="images/mo-pic.jpg" />
+    </div><!-- end pic -->
+    <div id="blurb">
+			<p>
+				I build <strong>websites</strong> and <strong>applications</strong> that free people up to do what they love. I believe that this type of application should be <strong>straightforward</strong> and <strong>graceful</strong>, both on the user’s side and in the code. That means I spend much of my time in <strong>Ruby</strong> (mostly <strong>Rails</strong>), and I can't complain about that.
+			</p>
+    </div>
+  </div><!-- end top -->
+
+  <div id="bottom">
+		<div id="networks">
+      <h3>Networks</h3>
+      <ul>
+        <li>
+          <a href="http://github.com/molawson">
+            <span class="social_icon github">Github</span>
+            <span class="service">Github</span><br />
+            <span class="link">github.com/molawson</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://behance.net/molawson/frame">
+            <span class="social_icon behance">Behance</span>
+            <span class="service">Behance</span><br />
+            <span class="link">behance.net/molawson</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/molawson">
+            <span class="social_icon twitter">Twitter</span>
+            <span class="service">Twitter</span><br />
+            <span class="link">twitter.com/molawson</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:mo@molawson.com">
+            <span class="social_icon email">Email</span>
+            <span class="service">Email</span><br />
+            <span class="link">mo@molawson.com</span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- end networks -->
+
+    <div id="services">
+      <h3>Services</h3>
+      <ul>
+        <li>Web Application Development</li>
+        <li>Website Design</li>
+        <li>CMS Integration</li>
+        <li>Consulting</li>
+      </ul>
+    </div><!-- end services -->
+
+  </div><!-- end bottom -->
+</div><!-- end main -->
+
+<div id="sidebar">
+  <h3>Recent Blog Posts</h3>
+	<div id="recent">
+  <% @post_days.sort { |a, b| b <=> a }.each do |day, posts| %>
+    <div class="meta"><%= day.strftime("%b %e") %></div>
+    <div class="day">
+    <% posts.each do |post| %>
+  	  <div class="title"><%= link_to post.title, blog_post_path(post.slug) %></div>
+    <% end %>
+    </div><!-- end day -->
+	<% end %>
+	</div><!-- end recent -->
+	<p class="more"><%= link_to 'More posts &raquo;'.html_safe, blog_path %></p>
+</div><!-- end sidebar -->
