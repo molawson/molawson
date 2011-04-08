@@ -3,13 +3,13 @@
   <div id="top">
     <h3>Hi, I'm Mo.</h3>
     <div id="pic">
-      <img src="images/mo-pic.jpg" />
+      <%= image_tag "mo-pic.jpg", :alt => "Mo Lawson" %>
     </div><!-- end pic -->
     <div id="blurb">
 			<p>
 				I build <strong>websites</strong> and <strong>applications</strong> that free people up to do what they love. I believe that this type of application should be <strong>straightforward</strong> and <strong>graceful</strong>, both on the user’s side and in the code. That means I spend much of my time in <strong>Ruby</strong> (mostly <strong>Rails</strong>), and I can't complain about that.
 			</p>
-    </div>
+    </div><!-- end blurb -->
   </div><!-- end top -->
 
   <div id="bottom">
@@ -17,32 +17,32 @@
       <h3>Networks</h3>
       <ul>
         <li>
-          <a href="http://github.com/molawson">
+          <%= link_to "http://github.com/molawson", :target => "_blank" do %>
             <span class="social_icon github">Github</span>
             <span class="service">Github</span><br />
             <span class="link">github.com/molawson</span>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="http://behance.net/molawson/frame">
+          <%= link_to "http://behance.net/molawson/frame", :target => "_blank" do %>
             <span class="social_icon behance">Behance</span>
             <span class="service">Behance</span><br />
             <span class="link">behance.net/molawson</span>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="http://twitter.com/molawson">
+          <%= link_to "http://twitter.com/molawson", :target => "_blank" do %>
             <span class="social_icon twitter">Twitter</span>
             <span class="service">Twitter</span><br />
             <span class="link">twitter.com/molawson</span>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="mailto:mo@molawson.com">
+          <%= link_to "mailto:mo@molawson.com" do %>
             <span class="social_icon email">Email</span>
             <span class="service">Email</span><br />
             <span class="link">mo@molawson.com</span>
-          </a>
+          <% end %>
         </li>
       </ul>
     </div><!-- end networks -->
@@ -58,6 +58,7 @@
     </div><!-- end services -->
 
   </div><!-- end bottom -->
+  
 </div><!-- end main -->
 
 <div id="sidebar">

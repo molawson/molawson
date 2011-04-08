@@ -170,9 +170,9 @@ a:hover { color: #333; }
   margin-bottom: 24px;
 }
 
-#content h3 a {
-  color: #333;
-}
+#content h3 a { color: #333; }
+
+#content h3 a:hover { color: #1ea4bd; }
 
 #content p {
   line-height: 21px;
