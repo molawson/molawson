@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   
+  before_filter :authenticate, :except => [:blog, :show]
+  
   def blog
     @posts = Post.published.order("created_at DESC")
   end

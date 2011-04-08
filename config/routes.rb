@@ -7,6 +7,8 @@ Molawson::Application.routes.draw do
   get "/blog"  => "posts#blog", :as => "blog"
   get "/blog/:slug" => "posts#show", :as => "blog_post"
 
+  match "/admin" => redirect("/admin/posts")
+
   root :to => "pages#home"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
