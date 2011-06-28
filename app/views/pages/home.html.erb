@@ -63,15 +63,14 @@
 
 <div id="sidebar">
   <h3>Recent Blog Posts</h3>
-	<div id="recent">
-  <% @post_days.sort { |a, b| b <=> a }.each do |day, posts| %>
-    <div class="meta"><%= day.strftime("%b %e") %></div>
-    <div class="day">
-    <% posts.each do |post| %>
-  	  <div class="title"><%= link_to post.title, blog_post_path(post.slug) %></div>
+  <% if @posts.length > 0 %>
+	<ul id="recent">
+    <% @posts.each do |post| %>
+  	  <li><%= link_to post.title, blog_post_path(post.slug) %></li>
     <% end %>
-    </div><!-- end day -->
-	<% end %>
-	</div><!-- end recent -->
+	</ul><!-- end recent -->
 	<p class="more"><%= link_to 'More posts &raquo;'.html_safe, blog_path %></p>
+	<% else %>
+    <p>Coming soon.</p>
+  <% end %>
 </div><!-- end sidebar -->

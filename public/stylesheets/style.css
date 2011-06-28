@@ -1,17 +1,17 @@
 body {
   background: #f4f4f4;
   font-family: 'OpenSans', sans-serif;
-	font-size: 14px;
-	color: #333;
+	font-size: 13px;
+	color: #6a6a6a;
 }
 
 a {
-  color: #1ea4bd;
+  color: #222;
   font-weight: bold;
   text-decoration: none;
 }
 
-a:hover { color: #333; }
+a:hover { color: #1ea4bd; }
 
 .wrapper {
   width: 900px;
@@ -21,8 +21,9 @@ a:hover { color: #333; }
 
 h2, h3, h4, h5,
 h2 a, h3 a, h4 a, h5 a {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'HattoriHanzoLight', sans-serif;
   font-weight: normal;
+  color: #222;
 }
 
 
@@ -43,131 +44,116 @@ h2 a, h3 a, h4 a, h5 a {
     color: #1ea4bd;
   }
 
-  #header h2 {
-    font-family: 'CodeLight', sans-serif;
-    font-size: 18px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: #666;
-    text-align: center;
-  }
-
 #content {
   position: relative;
   background: #fff;
   padding: 32px;
   border: 10px solid #ddd;
-  /*box-shadow: 0px 0px 12px rgba(0,0,0,0.2);*/
   overflow: hidden;
 }
 
 
 /*-- HOME PAGE --*/
 
-  #main {
-    float: left;
-    width: 520px;
-  }
+#main {
+  float: left;
+  width: 520px;
+}
 
-    #top { overflow: hidden; margin-bottom: 40px; }
+  #top { overflow: hidden; margin-bottom: 40px; }
 
-      #top #pic, #top #blurb { float: left; }
+    #top #pic, #top #blurb { float: left; }
 
-      #top #pic img { /*border: 3px solid #333;*/ }
-
-      #top #blurb {
-        width: 392px;
-        margin-left: 20px;
-      }
-
-        #top #blurb p {
-          font-size: 14px;
-          line-height: 20px;
-        }
-
-    #bottom { clear: both; overflow: hidden; }
-
-      h3 {
-        font-size: 22px;
-        margin-bottom: 14px;
-      }
-
-      #bottom #services, #bottom #networks { float: left; width: 245px; }
-
-      #bottom #services { margin-right: 30px; }
-
-      #services ul li { margin-bottom: 8px; }
-
-      #networks ul li {
-        margin-bottom: 14px;
-        overflow: hidden;
-        line-height: 11px;
-      }
-
-      #networks ul li a {
-        color: #333;
-        font-weight: normal;
-      }
-
-      #networks ul li a span.social_icon {
-        background: url(../images/social_sprite.png) no-repeat;
-        width: 32px;
-        height: 32px;
-        text-indent: -9999px;
-        display: inline-block;
-        margin-right: 10px;
-        float: left;
-      }
-
-      #networks ul li a span.social_icon.behance { background-position: 0px 0px; }
-      #networks ul li a span.social_icon.github { background-position: 0px -32px; }
-      #networks ul li a span.social_icon.twitter { background-position: 0px -64px; }
-      #networks ul li a span.social_icon.email { background-position: 0px -96px; }
-
-      #networks ul li a:hover span.social_icon.behance { background-position: -32px 0px; }
-      #networks ul li a:hover span.social_icon.github { background-position: -32px -32px; }
-      #networks ul li a:hover span.social_icon.twitter { background-position: -32px -64px; }
-      #networks ul li a:hover span.social_icon.email { background-position: -32px -96px; }
-
-      #networks ul li a span.link { font-size: 11px; }
-
-      #networks ul li a span.service {
-        text-transform: uppercase;
-        line-height: 18px;
-      }
-
-
-  #sidebar {
-    float: right;
-    width: 260px;
-  }
-
-    #sidebar #recent {
-      margin-bottom: 36px;
+    #top #blurb {
+      width: 392px;
+      margin-left: 20px;
     }
 
-      #recent .day { margin-bottom: 18px; }
+  #bottom { 
+    clear: both; 
+    overflow: hidden;
+  }
 
-      #recent .title { margin-bottom: 12px;}
-
-      #recent .title a {
-        font-size: 14px;
-      }
-
-      #recent .title a:hover { color: #333; }
-
-      #recent .meta {
-        font-size: 10px;
-        color: #666;
-        margin-bottom: 6px;
-        font-style: italic;
-      }
-      
-    #sidebar p.more { text-align: right; }
-
-    #sidebar p.more a {
-      font-size: 13px;
+    h3 {
+      font-size: 22px;
+      margin-bottom: 18px;
     }
+
+    #bottom #services, #bottom #networks { 
+      float: left; 
+      width: 245px;
+    }
+
+    #bottom #services { margin-right: 30px; }
+
+    #services ul li { margin-bottom: 8px; }
+
+    #networks ul li {
+      margin-bottom: 14px;
+      overflow: hidden;
+      line-height: 11px;
+    }
+
+    #networks ul li a {
+      color: #6a6a6a;
+      font-weight: normal;
+    }
+    
+    #networks ul li a:hover { color: #222; }
+
+    #networks ul li a span.social_icon {
+      background: url(../images/social_sprite.png) no-repeat;
+      width: 32px;
+      height: 32px;
+      text-indent: -9999px;
+      display: inline-block;
+      margin-right: 10px;
+      float: left;
+    }
+
+    #networks ul li a span.social_icon.behance { background-position: 0px 0px; }
+    #networks ul li a span.social_icon.github { background-position: 0px -32px; }
+    #networks ul li a span.social_icon.twitter { background-position: 0px -64px; }
+    #networks ul li a span.social_icon.email { background-position: 0px -96px; }
+
+    #networks ul li a:hover span.social_icon.behance { background-position: -32px 0px; }
+    #networks ul li a:hover span.social_icon.github { background-position: -32px -32px; }
+    #networks ul li a:hover span.social_icon.twitter { background-position: -32px -64px; }
+    #networks ul li a:hover span.social_icon.email { background-position: -32px -96px; }
+
+    #networks ul li a span.link { font-size: 11px; }
+
+    #networks ul li a span.service {
+      text-transform: uppercase;
+      line-height: 18px;
+    }
+
+
+#sidebar {
+  float: right;
+  width: 260px;
+}
+
+  #sidebar ul#recent { margin-bottom: 36px; }
+
+    ul#recent li { margin-bottom: 18px;}
+
+    ul#recent li a { 
+      color: #6a6a6a; 
+      font-weight: normal; 
+    }
+
+    ul#recent li a:hover { color: #222; }
+    
+  #sidebar p.more { text-align: right; }
+
+  #sidebar a { color: #1ea4bd; }
+  #sidebar a:hover { color: #222; }
+  
+  #sidebar .nav_links { 
+    padding-top: 14px;
+    border-top: 20px solid #f4f4f4;
+  }
 
 
 /*-- BLOG --*/
@@ -178,12 +164,10 @@ h2 a, h3 a, h4 a, h5 a {
   margin-bottom: 24px;
 }
 
-#content h3 a { color: #333; }
-
 #content h3 a:hover { color: #1ea4bd; }
 
 #content p {
-  line-height: 21px;
+  line-height: 20px;
   margin-bottom: 12px;
 }
 
@@ -202,15 +186,11 @@ h2 a, h3 a, h4 a, h5 a {
     
     #content article header h2+p.meta { font-size: 12px; }
 
-    #content article header h3+p.meta { font-size: 11px; line-height: 18px; }
+    #content article header h3+p.meta {
+      font-size: 11px;
+      line-height: 18px;
+    }
     
-#sidebar .nav_links { 
-  /*margin-top: 14px;
-  */
-  padding-top: 14px;
-  border-top: 20px solid #f4f4f4;
-}
-
 
 /*-- ADMIN --*/
 
@@ -248,6 +228,7 @@ label {
 input[type="text"],
 input[type="password"],
 textarea {
+  font-family: 'OpenSans', sans-serif;
   font-size: 13px;
   border: 1px solid #e5e5e5;
   padding: 6px 8px;
@@ -264,9 +245,9 @@ textarea {
 input[type="submit"],
 button {
   border: none;
-  background: #333;
+  background: #222;
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'OpenSans', sans-serif;
   font-weight: bold;
   font-size: 14px;
   padding: 6px 12px;
@@ -343,6 +324,7 @@ button:hover {
   margin-bottom: 4px;
 }
 
+
 /*--- FONT FACE ---*/
 
 @font-face {
@@ -357,34 +339,34 @@ button:hover {
 }
 
 @font-face {
-    font-family: 'Oswald';
-    src: url('../fonts/Oswald-webfont.eot');
-    src: url('../fonts/Oswald-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Oswald-webfont.woff') format('woff'),
-         url('../fonts/Oswald-webfont.ttf') format('truetype'),
-         url('../fonts/Oswald-webfont.svg#Oswald') format('svg');
+    font-family: 'HattoriHanzoLight';
+    src: url('../fonts/Hattori_Hanzo-webfont.eot');
+    src: url('../fonts/Hattori_Hanzo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Hattori_Hanzo-webfont.woff') format('woff'),
+         url('../fonts/Hattori_Hanzo-webfont.ttf') format('truetype'),
+         url('../fonts/Hattori_Hanzo-webfont.svg#HattoriHanzoLight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'OpenSans';
-    src: url('../fonts/OpenSans-Light-webfont.eot');
-    src: url('../fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Light-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Light-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
+    src: url('../fonts/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'OpenSans';
-    src: url('../fonts/OpenSans-LightItalic-webfont.eot');
-    src: url('../fonts/OpenSans-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-LightItalic-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-LightItalic-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-LightItalic-webfont.svg#OpenSansLightItalic') format('svg');
+    src: url('../fonts/OpenSans-Italic-webfont.eot');
+    src: url('../fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Italic-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
     font-weight: normal;
     font-style: italic;
 }
