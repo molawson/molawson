@@ -3,4 +3,5 @@
 log/*.log
 tmp/**/*
 config/database.yml
+config/admin_login.yml
 .powenv

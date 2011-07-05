@@ -28,7 +28,26 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  
+  task :create_admin_login do
+    default_template = <<-EOF
+    USERNAME: #{user}
+    PASSWORD: #{password}
+    EOF
+    
+    admin_login = ERB.new(default_template)
+
+    run "mkdir -p #{shared_path}/config" 
+    put admin_login.result, "#{shared_path}/config/admin_login.yml"
+  end
+  
+  task :symlink_admin_login do
+    run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
+  end
 end
+
+before "deploy:setup", "deploy:create_admin_login"
+after "deploy:update_code", "deploy:symlink_admin_login" 
 
 namespace :db do
   desc "Create database yaml in shared path" 
