@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mo Lawson - Ruby on Rails Developer, Dallas, Texas</title>
+  <title><%= content_for?(:title) ? yield(:title) + " | Mo Lawson" : "Mo Lawson | Ruby on Rails Developer, Dallas, Texas" %></title>
   <%= stylesheet_link_tag :all %>
   <%= csrf_meta_tag %>
 </head>
@@ -10,7 +10,7 @@
     <div id="header">
       <h1><%= link_to 'Mo Lawson', root_url %></h1>
     </div><!-- end header -->
-    
+
     <div id="content">
       
       <%- flash.each do |name, msg| -%>
