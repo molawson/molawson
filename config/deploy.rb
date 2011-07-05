@@ -15,6 +15,7 @@ set :user, "deploy"
 set :use_sudo, false
 
 set :deploy_to, "/var/apps/molawson/"
+set :deploy_via, :remote_cache
 
 role :web, "50.57.100.182"
 role :app, "50.57.100.182"
