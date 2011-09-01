@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
       username == ADMIN_LOGIN['USERNAME'] && password == ADMIN_LOGIN['PASSWORD']
     end
   end
+  
+  def load_harvest
+    @harvest = Harvest.hardy_client(HARVEST_LOGIN['SUBDOMAIN'], HARVEST_LOGIN['USERNAME'], HARVEST_LOGIN['PASSWORD'])
+  end
 end

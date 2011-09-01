@@ -1,0 +1,44 @@
+<div style="float: left">
+  <h3>Invoice #<%= @invoice.number %></h3>
+  <p>
+    <%= @invoice.subject %><br />
+    <%= @invoice.issued_at %><br />
+    <%= @invoice.due_at + " (" + @invoice.due_at_human_format + ")" %>
+  </p>
+</div>
+
+<div style="float: right; margin-bottom: 36px">
+  <p>
+    Mo Lawson<br />
+    2629 Blue Myrtle Way<br />
+    Dallas, TX 75212
+  </p>
+
+  <p>
+    <%= @client.name %><br />
+    <%=raw @client.details.gsub(/\n/, '<br>') %>
+  </p>
+</div>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Amount</th>
+  </tr>
+  <% @invoice.line_items.each do |item| %>
+  <tr>
+    <td><%= item.kind %></td>
+    <td><%= item.description %></td>
+    <td><%= item.quantity %></td>
+    <td><%= number_to_currency(item.unit_price) %></td>
+    <td><%= number_to_currency(item.amount) %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th colspan="4" style="text-align: right">Amount Due</td>
+    <th><%= number_to_currency(@invoice.due_amount) %></td>
+  </tr>
+</table>

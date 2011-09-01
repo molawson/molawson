@@ -1,0 +1,3 @@
+<% @invoices.each do |invoice| %>
+  <p><%= link_to invoice.subject, invoice_path(invoice.id) %></p>
+<% end %>

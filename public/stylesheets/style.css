@@ -164,15 +164,17 @@ body, select, input, textarea {
  
 body { background: #f4f4f4; }
 
-a, 
-a:active,
-a:visited {
+a {
   color: #222;
   font-weight: bold;
   text-decoration: none;
 }
 
 a:hover { color: #1ea4bd; }
+
+p a { color: #1ea4bd; }
+
+p a:hover { color: #444;}
 
 .wrapper {
   width: 900px;
