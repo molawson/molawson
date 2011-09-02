@@ -42,3 +42,7 @@
     <th><%= number_to_currency(@invoice.due_amount) %></td>
   </tr>
 </table>
+
+<% if @invoice.due_amount.to_f > 0 %>
+<p><%= link_to "Pay invoice", new_payment_path(@invoice.client_key), :class => 'button' %></p>
+<% end %>

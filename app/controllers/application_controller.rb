@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == ADMIN_LOGIN['USERNAME'] && password == ADMIN_LOGIN['PASSWORD']
+      username == ADMIN_AUTH['USERNAME'] && password == ADMIN_AUTH['PASSWORD']
     end
   end
   
   def load_harvest
-    @harvest = Harvest.hardy_client(HARVEST_LOGIN['SUBDOMAIN'], HARVEST_LOGIN['USERNAME'], HARVEST_LOGIN['PASSWORD'])
+    @harvest = Harvest.hardy_client(HARVEST_AUTH['SUBDOMAIN'], HARVEST_AUTH['USERNAME'], HARVEST_AUTH['PASSWORD'])
   end
 end

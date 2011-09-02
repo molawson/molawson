@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405224749) do
+ActiveRecord::Schema.define(:version => 20110901185113) do
+
+  create_table "payments", :force => true do |t|
+    t.integer  "invoice_id"
+    t.decimal  "amount"
+    t.string   "name"
+    t.string   "email"
+    t.string   "charge_id"
+    t.integer  "payment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"

@@ -13,6 +13,8 @@ Molawson::Application.routes.draw do
   
   scope "/clients" do
     get "/invoices/:client_key" => "invoices#show", :as => "client_invoice"
+    get "/invoices/:client_key/payment" => "payments#new", :as => "new_payment"
+    post "/invoices/:client_key/payment" => "payments#create", :as => "payments"
   end
 
   root :to => "pages#home"

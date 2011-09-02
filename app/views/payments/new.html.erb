@@ -1,0 +1,71 @@
+<h2>Pay with Credit Card</h2>
+
+<%= form_for(@payment) do |f| %>
+  <% if @payment.errors.any? %>
+    <div class="payment_error">
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id='credit_card_errors' style='display:none'> 
+    <div class="payment_error" id="stripe_error_message"></div> 
+  </div><!-- end credit_card_errors -->
+  
+  <fieldset>
+    <div class="field full">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div id="credit_card"<%=raw @payment.last_4_digits ? ' style="display:none"' : 'style="display:block"' %>>
+      <div class="field third double">
+        <%= label_tag :credit_card_number %><br />
+        <%= text_field_tag :credit_card_number %>
+      </div>
+      <div class="field third">
+        <%= label_tag :cvv, "Security code (CVV)" %><br />
+        <%= text_field_tag :cvv %>
+      </div>
+      <div class="field third date">
+        <%= label_tag :expiry_date %><br />
+        <%= date_select "", :expiry_date, {:discard_day => true, :order => [:month, :year], :add_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 10} %>
+      </div>
+      <div id="accepted_cards_wrapper">
+        <img src="/images/creditCards.png" alt="Cards we accept" id="accepted_card_logos" />      
+      </div>
+    </div><!-- end credit_card -->
+    
+    <%= f.hidden_field :last_4_digits %>
+    <%= f.hidden_field :stripe_token %>
+    
+    <% if @payment.last_4_digits %>
+      <div id="change_card">
+        <%= label_tag "Card" %><br />
+        <span class="input">Using card ending with <%= @payment.last_4_digits %> <%= link_to "(change)", "#" %></span>
+      </div>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <div class="field full">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>  
+  </fieldset>
+
+  <fieldset>
+    <h3><span class="def">Invoice:</span> #<%= @payment.invoice_number %></h3>
+    <%= f.hidden_field :invoice_number %>
+    <h3><span class="def">Amount Due:</span> <%= number_to_currency(@payment.amount) %></h3>
+    <%= f.hidden_field :amount %>
+    <%= f.hidden_field :invoice_id %>
+  </fieldset>
+  
+  <div class="actions">
+    <%= f.submit "Submit Payment", :class => 'green' %>
+    <%= link_to "Cancel", client_invoice_path(@invoice.client_key), :class => 'button' %>
+  </div>
+<% end %>
+
