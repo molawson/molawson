@@ -30,20 +30,29 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
-  task :create_admin_login do
+  task :create_auth_credentials do
     default_template = <<-EOF
-    USERNAME: #{user}
-    PASSWORD: #{password}
+    admin:
+      USERNAME: #{user}
+      PASSWORD: #{password}
+      
+    harvest:
+      SUBDOMAIN: mycompany
+      USERNAME: name@domain.com
+      PASSWORD: secret
+
+    stripe: 
+      API_KEY: supersecret
     EOF
     
-    admin_login = ERB.new(default_template)
+    auth_credentials = ERB.new(default_template)
 
     run "mkdir -p #{shared_path}/config" 
-    put admin_login.result, "#{shared_path}/config/admin_login.yml"
+    put auth_credentials.result, "#{shared_path}/config/auth_credentials.yml"
   end
   
   task :symlink_admin_login do
-    run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
+    run "ln -nfs #{shared_path}/config/auth_credentials.yml #{release_path}/config/auth_credentials.yml" 
   end
 end
 
