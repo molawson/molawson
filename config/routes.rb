@@ -9,6 +9,8 @@ Molawson::Application.routes.draw do
 
   match "/admin" => redirect("/admin/posts")
 
+  match "/clients" => "pages#clients", :as => "clients"
+
   root :to => "pages#home"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

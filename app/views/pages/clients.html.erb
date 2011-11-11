@@ -1,0 +1,21 @@
+<h2>Client login</h2>
+
+<%= form_tag 'https://launchpad.37signals.com/authenticate', :id => 'client_login' do %>
+  <%= hidden_field_tag 'product', 'basecamp' %>
+  <%= hidden_field_tag 'subdomain', 'molawson' %>
+  <div class="field">
+    <%= label_tag 'username' %><br />
+    <%= text_field_tag 'username' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'password' %><br />
+    <%= password_field_tag 'password' %>
+  </div>
+  <div class="field">
+    <%= check_box_tag 'remember_me' %>
+    <%= label_tag 'remember_me' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Sign in' %>
+  </div>
+<% end %>
