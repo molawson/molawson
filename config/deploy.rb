@@ -31,17 +31,57 @@ namespace :deploy do
   end
   
   task :create_config_files do
-    default_template = <<-EOF
+    default_admin_login = <<-EOF
     USERNAME: #{user}
     PASSWORD: #{password}
     EOF
     
-    admin_login = ERB.new(default_template)
+    admin_login = ERB.new(default_admin_login)
 
     run "mkdir -p #{shared_path}/config" 
     put admin_login.result, "#{shared_path}/config/admin_login.yml"
 
-    run "cp #{release_path}/config/newrelic.example.yml #{shared_path}/config/newrelic.yml"
+    default_newrelic = <<-EOF
+    common: &default_settings
+      license_key: 'secretstring'
+      app_name: molawson
+      monitor_mode: true
+      developer_mode: false
+      log_level: info
+      ssl: false
+      apdex_t: 0.5
+      capture_params: false
+      transaction_tracer:
+        enabled: true
+        transaction_threshold: apdex_f
+        record_sql: obfuscated
+        stack_trace_threshold: 0.500
+      error_collector:
+        enabled: true
+        capture_source: true    
+        ignore_errors: ActionController::RoutingError
+
+    development:
+      <<: *default_settings
+      monitor_mode: false
+      developer_mode: true
+
+    test:
+      <<: *default_settings
+      monitor_mode: false
+
+    production:
+      <<: *default_settings
+      monitor_mode: true
+
+    staging:
+      <<: *default_settings
+      monitor_mode: true
+      app_name: molawson-staging
+    EOF
+    
+    newrelic = ERB.new(default_newrelic)
+    put newrelic.result, "#{shared_path}/config/newrelic.yml"
   end
 
   task :symlink_config_files do
