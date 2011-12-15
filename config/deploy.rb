@@ -1,7 +1,7 @@
 # Add RVM's lib directory to the load path.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
-require "rvm/capistrano"
+#require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :rvm_ruby_string, '1.9.2'
@@ -30,7 +30,7 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
-  task :create_admin_login do
+  task :create_config_files do
     default_template = <<-EOF
     USERNAME: #{user}
     PASSWORD: #{password}
@@ -40,15 +40,18 @@ namespace :deploy do
 
     run "mkdir -p #{shared_path}/config" 
     put admin_login.result, "#{shared_path}/config/admin_login.yml"
+
+    run "cp #{release_path}/config/newrelic.example.yml #{shared_path}/config/newrelic.yml"
   end
-  
-  task :symlink_admin_login do
+
+  task :symlink_config_files do
+    run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
     run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
   end
 end
 
-before "deploy:setup", "deploy:create_admin_login"
-after "deploy:update_code", "deploy:symlink_admin_login" 
+before "deploy:setup", "deploy:create_config_files"
+after "deploy:update_code", "deploy:symlink_config_files" 
 
 namespace :db do
   desc "Create database yaml in shared path" 
