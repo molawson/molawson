@@ -1,7 +1,7 @@
 # Add RVM's lib directory to the load path.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
-#require "rvm/capistrano"
+require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :rvm_ruby_string, '1.9.2'
@@ -17,9 +17,9 @@ set :use_sudo, false
 set :deploy_to, "/var/apps/molawson/"
 set :deploy_via, :remote_cache
 
-role :web, "50.57.100.182"
-role :app, "50.57.100.182"
-role :db,  "50.57.100.182", :primary => true
+role :web, "50.57.182.246"
+role :app, "50.57.182.246"
+role :db,  "50.57.182.246", :primary => true
 
 namespace :deploy do
   task :start do ; end
@@ -86,7 +86,7 @@ namespace :deploy do
 
   task :symlink_config_files do
     run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
-    run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
+    run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml" 
   end
 end
 
