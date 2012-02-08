@@ -1,7 +1,7 @@
 .DS_Store
 .bundle
 log/*.log
-tmp/**/*
+tmp/*
 config/database.yml
 config/admin_login.yml
 config/newrelic.yml
