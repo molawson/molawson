@@ -87,7 +87,8 @@ ul, ol { list-style-type: none; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 
 small { font-size: 85%; }
-strong, th { font-weight: bold; }
+th { font-weight: bold; }
+strong { font-weight: normal; color: #222; }
 
 td { vertical-align: top; }
 
@@ -187,6 +188,8 @@ h2 a, h3 a, h4 a, h5 a {
   color: #222;
 }
 
+.alignleft { float: left; }
+.alignright { float: right; }
 
 #header {
   height: 100px;
@@ -208,9 +211,10 @@ h2 a, h3 a, h4 a, h5 a {
 #content {
   position: relative;
   background: #fff;
-  padding: 32px;
-  border: 10px solid #ddd;
+  padding: 36px 42px;
   overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.25)
 }
 
 
@@ -325,7 +329,11 @@ h2 a, h3 a, h4 a, h5 a {
   margin-bottom: 24px;
 }
 
-#content h3 a:hover { color: #1ea4bd; }
+#content h3 a:hover,
+#content h3 a:active { 
+  color: #1ea4bd;
+  font-weight: normal;
+}
 
 #content p {
   line-height: 20px;
@@ -355,6 +363,12 @@ h2 a, h3 a, h4 a, h5 a {
 
 /*-- ADMIN --*/
 
+a.new-button { 
+  display: block;
+  margin: 3px 0 32px 0;
+  float: right;
+}
+
 table { width: 100%; }
 
 table td { 
@@ -371,6 +385,7 @@ table th.actions,
 table td.actions {
   text-align: center;
   width: 100px;
+  padding-right: 0;
 }
 
 
@@ -393,6 +408,7 @@ textarea {
   font-size: 13px;
   border: 1px solid #e5e5e5;
   padding: 6px 8px;
+  border-radius: 4px;
 }
 
 input[type="text"]:focus,
@@ -414,22 +430,25 @@ textarea {
 }
 
 input[type="submit"],
-button {
+button,
+a.button {
   border: none;
-  background: #222;
+  background: #1ea4bd;
   color: #fff;
   font-family: 'OpenSans', sans-serif;
   font-weight: bold;
-  font-size: 14px;
-  padding: 6px 12px;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 
 input[type="submit"]:hover,
 input[type="submit"]:focus,
 button:focus,
-button:hover { 
+button:hover,
+a.button:hover { 
   cursor: pointer;
-  background: #1ea4bd;
+  background: #222;
   outline: none;
 }
 
