@@ -1,4 +1,4 @@
-equire "bundler/capistrano"
+require "bundler/capistrano"
 
 set :application, "molawson"
 
@@ -13,9 +13,9 @@ set :deploy_to, "/var/apps/molawson/"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-role :web, "184.106.79.208"
-role :app, "184.106.79.208"
-role :db,  "184.106.79.208", :primary => true
+role :web, "209.20.78.171"
+role :app, "209.20.78.171"
+role :db,  "209.20.78.171", :primary => true
 
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
