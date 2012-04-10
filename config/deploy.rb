@@ -1,33 +1,31 @@
-# Add RVM's lib directory to the load path.
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-
-require "rvm/capistrano"
-require "bundler/capistrano"
-
-set :rvm_ruby_string, '1.9.2'
+equire "bundler/capistrano"
 
 set :application, "molawson"
-set :repository,  "git://github.com/molawson/molawson.git"
 
 set :scm, :git
+set :repository,  "git@github.com:molawson/molawson.git"
+set :deploy_via, :remote_cache
 
 set :user, "deploy"
 set :use_sudo, false
-
 set :deploy_to, "/var/apps/molawson/"
-set :deploy_via, :remote_cache
 
-role :web, "50.57.182.246"
-role :app, "50.57.182.246"
-role :db,  "50.57.182.246", :primary => true
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+
+role :web, "184.106.79.208"
+role :app, "184.106.79.208"
+role :db,  "184.106.79.208", :primary => true
+
+
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
-  task :start do ; end
-  
-  task :stop do ; end
-  
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: {no_release: true} do
+      run "/etc/init.d/unicorn_#{application} #{command}"
+    end
   end
   
   task :create_config_files do
@@ -88,6 +86,22 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/admin_login.yml #{release_path}/config/admin_login.yml" 
     run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml" 
   end
+
+  task :setup_config, roles: :app do
+    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+  end
+  after "deploy:setup", "deploy:setup_config"
+  
+  desc "Make sure local git is in sync with remote."
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts "WARNING: HEAD is not the same as origin/master"
+      puts "Run `git push` to sync changes."
+      exit
+    end
+  end
+  before "deploy", "deploy:check_revision"
 end
 
 before "deploy:setup", "deploy:create_config_files"
