@@ -8,14 +8,14 @@ set :deploy_via, :remote_cache
 
 set :user, "deploy"
 set :use_sudo, false
-set :deploy_to, "/var/apps/molawson/"
+set :deploy_to, "/srv/apps/#{application}/"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-role :web, "209.20.78.171"
-role :app, "209.20.78.171"
-role :db,  "209.20.78.171", :primary => true
+role :web, "198.74.62.226"
+role :app, "198.74.62.226"
+role :db,  "198.74.62.226", :primary => true
 
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
