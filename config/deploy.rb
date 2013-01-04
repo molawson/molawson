@@ -21,19 +21,19 @@ role :db,  "198.74.62.226", :primary => true
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}"
-    end
+  task :start do; end
+  task :stop do; end
+  task :restart, roles: :app, except: { :no_release =>  true } do
+    run "touch #{deploy_to}/current/tmp/restart.txt"
   end
-  
+
+
   task :create_config_files do
     default_admin_login = <<-EOF
     USERNAME: #{user}
     PASSWORD: #{password}
     EOF
-    
+
     admin_login = ERB.new(default_admin_login)
 
     run "mkdir -p #{shared_path}/config" 
@@ -77,7 +77,7 @@ namespace :deploy do
       monitor_mode: true
       app_name: molawson-staging
     EOF
-    
+
     newrelic = ERB.new(default_newrelic)
     put newrelic.result, "#{shared_path}/config/newrelic.yml"
   end
@@ -88,11 +88,13 @@ namespace :deploy do
   end
 
   task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    sudo "ln -nfs #{current_path}/config/apache.conf /etc/apache2/sites-available/#{application}"
+    run "mkdir -p #{shared_path}/config"
+    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
-  
+
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
     unless `git rev-parse HEAD` == `git rev-parse origin/master`
