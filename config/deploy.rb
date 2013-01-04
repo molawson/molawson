@@ -10,6 +10,12 @@ set :user, "deploy"
 set :use_sudo, false
 set :deploy_to, "/srv/apps/#{application}/"
 
+
+set :default_environment, {
+  'PATH' => "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:$PATH",
+  'RAILS_ENV' => "production"
+}
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
@@ -153,5 +159,5 @@ namespace :db do
   end
 end
 
-before "deploy:setup", :db
+before "deploy:setup", "db"
 after "deploy:update_code", "db:symlink" 
