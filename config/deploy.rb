@@ -19,9 +19,9 @@ set :default_environment, {
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-role :web, "198.74.62.226"
-role :app, "198.74.62.226"
-role :db,  "198.74.62.226", :primary => true
+role :web, "kirby.molawson.com"
+role :app, "kirby.molawson.com"
+role :db,  "kirby.molawson.com", :primary => true
 
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
@@ -33,13 +33,13 @@ namespace :deploy do
       run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
-  
+
   task :create_config_files do
     default_admin_login = <<-EOF
     USERNAME: #{user}
     PASSWORD: #{password}
     EOF
-    
+
     admin_login = ERB.new(default_admin_login)
 
     run "mkdir -p #{shared_path}/config" 
@@ -83,7 +83,7 @@ namespace :deploy do
       monitor_mode: true
       app_name: molawson-staging
     EOF
-    
+
     newrelic = ERB.new(default_newrelic)
     put newrelic.result, "#{shared_path}/config/newrelic.yml"
   end
@@ -98,7 +98,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
   end
   after "deploy:setup", "deploy:setup_config"
-  
+
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
     unless `git rev-parse HEAD` == `git rev-parse origin/master`
@@ -144,7 +144,7 @@ namespace :db do
       username: #{user}
       password: #{password}
     EOF
-    
+
     db_config = ERB.new(default_template)
 
     run "mkdir -p #{shared_path}/config" 
