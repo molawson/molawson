@@ -6,14 +6,14 @@
       <%= image_tag "mo-pic.jpg", :alt => "Mo Lawson", :size => "100x100" %>
     </div><!-- end pic -->
     <div id="blurb">
-			<p>
-				I build <strong>websites</strong> and <strong>applications</strong> that free people up to do what they love. I believe that this type of application should be <strong>straightforward</strong> and <strong>graceful</strong>, both on the user’s side and in the code. That means I spend much of my time in <strong>Ruby</strong> (mostly <strong>Rails</strong>), and I can't complain about that.
-			</p>
+      <p>
+      I build <strong>websites</strong> and <strong>applications</strong> that free people up to do what they love. I believe that this type of application should be <strong>straightforward</strong> and <strong>graceful</strong>, both on the user’s side and in the code. That means I spend much of my time in <strong>Ruby</strong> (mostly <strong>Rails</strong>), and I can't complain about that.
+      </p>
     </div><!-- end blurb -->
   </div><!-- end top -->
 
   <div id="bottom">
-		<div id="networks">
+    <div id="networks">
       <h3>Networks</h3>
       <ul>
         <li>
@@ -58,19 +58,19 @@
     </div><!-- end services -->
 
   </div><!-- end bottom -->
-  
+
 </div><!-- end main -->
 
 <div id="sidebar">
   <h3>Recent Blog Posts</h3>
   <% if @posts.length > 0 %>
-	<ul id="recent">
-    <% @posts.each do |post| %>
-  	  <li><%= link_to post.title, blog_post_path(post.slug) %></li>
-    <% end %>
-	</ul><!-- end recent -->
-	<p class="more"><%= link_to 'More posts &raquo;'.html_safe, blog_path %></p>
-	<% else %>
+    <ul id="recent">
+      <% @posts.each do |post| %>
+        <li><%= link_to post.title, blog_post_path(post.slug) %></li>
+      <% end %>
+    </ul><!-- end recent -->
+    <p class="more"><%= link_to 'More posts &raquo;'.html_safe, blog_path %></p>
+  <% else %>
     <p>Coming soon.</p>
   <% end %>
 </div><!-- end sidebar -->
