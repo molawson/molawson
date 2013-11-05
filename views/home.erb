@@ -3,7 +3,7 @@
   <div id="top">
     <h3>Hi, I'm Mo.</h3>
     <div id="pic">
-      <%= image_tag "mo-pic.jpg", :alt => "Mo Lawson", :size => "100x100" %>
+      <img src="<%= image_path 'mo-pic.jpg' %>" alt="Mo Lawson" height="100" width="100">
     </div><!-- end pic -->
     <div id="blurb">
       <p>
@@ -17,32 +17,32 @@
       <h3>Networks</h3>
       <ul>
         <li>
-          <%= link_to "http://github.com/molawson", :target => "_blank" do %>
+          <a href="http://github.com/molawson" target="_blank">
             <span class="social_icon github">Github</span>
             <span class="service">Github</span><br />
             <span class="link">github.com/molawson</span>
-          <% end %>
+          </a>
         </li>
         <li>
-          <%= link_to "http://behance.net/molawson/frame", :target => "_blank" do %>
+          <a href="http://behance.net/molawson/frame" target="_blank">
             <span class="social_icon behance">Behance</span>
             <span class="service">Behance</span><br />
             <span class="link">behance.net/molawson</span>
-          <% end %>
+          </a>
         </li>
         <li>
-          <%= link_to "http://twitter.com/molawson", :target => "_blank" do %>
+          <a href="http://twitter.com/molawson" target="_blank">
             <span class="social_icon twitter">Twitter</span>
             <span class="service">Twitter</span><br />
             <span class="link">twitter.com/molawson</span>
-          <% end %>
+          </a>
         </li>
         <li>
-          <%= link_to "mailto:mo@molawson.com" do %>
+          <a href="mailto:mo@molawson.com">
             <span class="social_icon email">Email</span>
             <span class="service">Email</span><br />
             <span class="link">mo@molawson.com</span>
-          <% end %>
+          </a>
         </li>
       </ul>
     </div><!-- end networks -->

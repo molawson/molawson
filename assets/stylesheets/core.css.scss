@@ -267,7 +267,7 @@ h2 a, h3 a, h4 a, h5 a {
     #networks ul li a:hover { color: #222; }
 
     #networks ul li a span.social_icon {
-      background: url(../images/social_sprite.png) no-repeat;
+      background: image-url('social_sprite.png') no-repeat;
       width: 32px;
       height: 32px;
       text-indent: -9999px;
@@ -524,11 +524,11 @@ input[type="checkbox"] { margin: 3px; }
 
 @font-face {
     font-family: 'CodeLight';
-    src: url('../fonts/CodeLight-webfont.eot');
-    src: url('../fonts/CodeLight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/CodeLight-webfont.woff') format('woff'),
-         url('../fonts/CodeLight-webfont.ttf') format('truetype'),
-         url('../fonts/CodeLight-webfont.svg#CodeLight') format('svg');
+    src: asset-url('CodeLight-webfont.eot');
+    src: asset-url('CodeLight-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('CodeLight-webfont.woff') format('woff'),
+         asset-url('CodeLight-webfont.ttf') format('truetype'),
+         asset-url('CodeLight-webfont.svg#CodeLight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
