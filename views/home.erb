@@ -66,10 +66,14 @@
   <% if @posts.length > 0 %>
     <ul id="recent">
       <% @posts.each do |post| %>
-        <li><%= link_to post.title, blog_post_path(post.slug) %></li>
+        <li>
+          <a href="<%= post.url %>"><%= post.title %></a>
+          <span class="metadata left"><%= Time.at(post.published_at).strftime('%b %-d') %></span>
+          <span class="metadata right"><%= post.read_time %> minute read</span>
+        </li>
       <% end %>
     </ul><!-- end recent -->
-    <p class="more"><%= link_to 'More posts &raquo;'.html_safe, blog_path %></p>
+    <p class="more"><a href="http://blog.molawson.com">More posts &raquo;</a></p>
   <% else %>
     <p>Coming soon.</p>
   <% end %>

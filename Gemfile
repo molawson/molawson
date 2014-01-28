@@ -7,6 +7,8 @@ gem 'sinatra-contrib'
 gem 'sass'
 gem 'sinatra-asset-pipeline'
 
-gem 'mongoid'
+gem 'redis'
 gem 'unicorn'
 gem 'newrelic_rpm'
+
+gem 'faraday'

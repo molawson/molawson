@@ -299,22 +299,37 @@ h2 a, h3 a, h4 a, h5 a {
   width: 260px;
 }
 
-  #sidebar ul#recent { margin-bottom: 36px; }
+  #sidebar #recent { margin-bottom: 36px; }
 
-    ul#recent li { margin-bottom: 18px;}
+  #recent li {
+    margin-bottom: 24px;
+    overflow: hidden
+  }
 
-    ul#recent li a { 
-      color: #6a6a6a; 
-      font-weight: normal; 
+    #recent li a {
+      color: #6a6a6a;
+      display: block;
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 21px;
+      margin-bottom: 8px;
     }
 
-    ul#recent li a:hover { color: #222; }
-    
+    #recent li .metadata {
+        font-style: italic;
+        color: #999;
+    }
+
+    .left { float: left; }
+    .right { float:  right; }
+
+    #recent li a:hover { color: #222; }
+
   #sidebar p.more { text-align: right; }
 
   #sidebar a { color: #1ea4bd; }
   #sidebar a:hover { color: #222; }
-  
+
   #sidebar .nav_links { 
     padding-top: 14px;
     border-top: 20px solid #f4f4f4;
@@ -343,7 +358,7 @@ h2 a, h3 a, h4 a, h5 a {
 #content article { margin-bottom: 64px; } 
 
   #content article header { margin-bottom: 18px; }
-  
+
     #content article header h3,
     #content article header h2 { margin-bottom: 0; }
 
@@ -352,14 +367,14 @@ h2 a, h3 a, h4 a, h5 a {
       font-style: italic;
       margin-bottom: 0;
     }
-    
+
     #content article header h2+p.meta { font-size: 12px; }
 
     #content article header h3+p.meta {
       font-size: 11px;
       line-height: 18px;
     }
-    
+
 
 /*-- ADMIN --*/
 

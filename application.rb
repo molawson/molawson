@@ -1,6 +1,10 @@
+require_relative './environment'
+
 require 'sinatra/base'
 require 'sinatra/content_for'
 require 'sinatra/asset_pipeline'
+
+require 'post'
 
 class MoLawson < Sinatra::Base
   helpers Sinatra::ContentFor
@@ -10,7 +14,7 @@ class MoLawson < Sinatra::Base
   register Sinatra::AssetPipeline
 
   get '/' do
-    @posts = []
+    @posts = Post.all
     erb :home
   end
 end
