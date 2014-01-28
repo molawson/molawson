@@ -1,8 +1,7 @@
 .DS_Store
 .bundle
-log/*.log
-tmp/*
-config/database.yml
-config/admin_login.yml
-config/newrelic.yml
-.powenv
+.env
+.sass-cache
+log
+tmp
+public/assets

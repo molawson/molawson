@@ -1,0 +1,39 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title><%= content_for?(:title) ? "#{yield_content(:title)} | Mo Lawson" : "Mo Lawson | Ruby on Rails Developer" %></title>
+
+  <meta name="description" content="I'm Mo Lawson, a Ruby on Rails developer. I love using technology and the web to free people up to do what they do best.">
+  <meta name="author" content="Mo Lawson">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600">
+  <link rel="stylesheet" href="<%= stylesheet_path 'application' %>">
+</head>
+<body>
+  <div class="wrapper">
+    <div id="header">
+      <h1><a href="/">Mo Lawson</a></h1>
+    </div><!-- end header -->
+
+    <div id="content">
+      <%= yield %>
+    </div><!-- end content -->
+
+    <div id="footer">
+      &copy; <%= Date.today.year %> Mo Lawson. All rights reserved.
+    </div><!-- end footer -->
+  </div><!-- end wrapper -->
+
+  <script>
+    var _gaq=[["_setAccount","UA-21170189-1"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+</body>
+</html>

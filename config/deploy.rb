@@ -158,4 +158,20 @@ namespace :db do
 end
 
 before "deploy:setup", "db"
-after "deploy:update_code", "db:symlink" 
+after "deploy:update_code", "db:symlink"
+
+namespace :deploy do
+  namespace :assets do
+    task :precompile do
+      run "cd #{release_path} && bundle exec rake assets:precompile"
+    end
+  end
+end
+
+after "deploy:update_code", "deploy:assets:precompile"
+
+namespace :app do
+  task :update_posts do
+    run "cd #{current_path} && bundle exec rake update_posts"
+  end
+end
