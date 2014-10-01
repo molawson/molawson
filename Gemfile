@@ -12,3 +12,5 @@ gem 'unicorn'
 gem 'newrelic_rpm'
 
 gem 'faraday'
+
+gem 'capistrano', '~> 2.0', group: 'development'

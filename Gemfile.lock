@@ -2,6 +2,12 @@ GEM
   remote: http://rubygems.org/
   specs:
     backports (3.3.5)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -9,10 +15,18 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    highline (1.6.21)
     hike (1.2.3)
     kgio (2.7.4)
     multi_json (1.8.2)
     multipart-post (1.2.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.1)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     newrelic_rpm (3.3.3)
     rack (1.5.2)
     rack-protection (1.5.1)
@@ -62,6 +76,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano (~> 2.0)
   faraday
   newrelic_rpm
   redis
