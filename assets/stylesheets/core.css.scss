@@ -196,17 +196,17 @@ h2 a, h3 a, h4 a, h5 a {
   position: relative;
 }
 
-  #header h1 {
-    width: 417px;
-    margin: 48px auto 0;
-  }
+#header h1 {
+  width: 417px;
+  margin: 48px auto 0;
+}
 
-  #header h1 a {
-    font-family: 'CodeLight', sans-serif;
-    font-size: 74px;
-    font-weight: normal;
-    color: #1ea4bd;
-  }
+#header h1 a {
+  font-family: 'CodeLight', sans-serif;
+  font-size: 74px;
+  font-weight: normal;
+  color: #1ea4bd;
+}
 
 #content {
   position: relative;
@@ -220,120 +220,103 @@ h2 a, h3 a, h4 a, h5 a {
 
 /*-- HOME PAGE --*/
 
-#main {
-  float: left;
-  width: 520px;
+.d-f { display: flex }
+
+.f-2 { flex: 2 }
+.f-3 { flex: 3 }
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  background-image: image-url('profilepic.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }
 
-  #top { overflow: hidden; margin-bottom: 40px; }
+h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
 
-    #top #pic, #top #blurb { float: left; }
+#contact ul li {
+  margin-bottom: 14px;
+  overflow: hidden;
+  line-height: 11px;
+}
 
-    #top #blurb {
-      width: 392px;
-      margin-left: 20px;
-    }
+#contact ul li a {
+  color: #6a6a6a;
+  font-weight: normal;
+}
 
-  #bottom {
-    clear: both;
-    overflow: hidden;
-  }
+#contact ul li a:hover { color: #222; }
 
-    h3 {
-      font-size: 22px;
-      margin-bottom: 18px;
-    }
+#contact ul li a span.social_icon {
+  background: image-url('social_sprite.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+}
 
-    #bottom #services, #bottom #networks { 
-      float: left; 
-      width: 245px;
-    }
+#contact ul li a span.social_icon.github { background-position: 0px -32px; }
+#contact ul li a span.social_icon.twitter { background-position: 0px -64px; }
+#contact ul li a span.social_icon.email { background-position: 0px -96px; }
 
-    #bottom #services { margin-right: 30px; }
+#contact ul li a:hover span.social_icon.github { background-position: -32px -32px; }
+#contact ul li a:hover span.social_icon.twitter { background-position: -32px -64px; }
+#contact ul li a:hover span.social_icon.email { background-position: -32px -96px; }
 
-    #services ul li { margin-bottom: 8px; }
+#contact ul li a span.link { font-size: 11px; }
 
-    #networks ul li {
-      margin-bottom: 14px;
-      overflow: hidden;
-      line-height: 11px;
-    }
-
-    #networks ul li a {
-      color: #6a6a6a;
-      font-weight: normal;
-    }
-
-    #networks ul li a:hover { color: #222; }
-
-    #networks ul li a span.social_icon {
-      background: image-url('social_sprite.png') no-repeat;
-      width: 32px;
-      height: 32px;
-      text-indent: -9999px;
-      display: inline-block;
-      margin-right: 10px;
-      float: left;
-    }
-
-    #networks ul li a span.social_icon.behance { background-position: 0px 0px; }
-    #networks ul li a span.social_icon.github { background-position: 0px -32px; }
-    #networks ul li a span.social_icon.twitter { background-position: 0px -64px; }
-    #networks ul li a span.social_icon.email { background-position: 0px -96px; }
-
-    #networks ul li a:hover span.social_icon.behance { background-position: -32px 0px; }
-    #networks ul li a:hover span.social_icon.github { background-position: -32px -32px; }
-    #networks ul li a:hover span.social_icon.twitter { background-position: -32px -64px; }
-    #networks ul li a:hover span.social_icon.email { background-position: -32px -96px; }
-
-    #networks ul li a span.link { font-size: 11px; }
-
-    #networks ul li a span.service {
-      text-transform: uppercase;
-      line-height: 18px;
-    }
-
+#contact ul li a span.service {
+  text-transform: uppercase;
+  line-height: 18px;
+}
 
 #sidebar {
   float: right;
   width: 260px;
 }
 
-  #sidebar #recent { margin-bottom: 36px; }
+#sidebar #recent { margin-bottom: 36px; }
 
-  #recent li {
-    margin-bottom: 24px;
-    overflow: hidden
-  }
+#recent li {
+  margin-bottom: 24px;
+  overflow: hidden
+}
 
-    #recent li a {
-      color: #6a6a6a;
-      display: block;
-      font-size: 15px;
-      font-weight: normal;
-      line-height: 21px;
-      margin-bottom: 8px;
-    }
+#recent li a {
+  color: #6a6a6a;
+  display: block;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 21px;
+  margin-bottom: 8px;
+}
 
-    #recent li .metadata {
-        font-style: italic;
-        color: #999;
-    }
+#recent li .metadata {
+  font-style: italic;
+  color: #999;
+}
 
-    .left { float: left; }
-    .right { float:  right; }
+.left { float: left; }
+.right { float:  right; }
 
-    #recent li a:hover { color: #222; }
+#recent li a:hover { color: #222; }
 
-  #sidebar p.more { text-align: right; }
+#sidebar p.more { text-align: right; }
 
-  #sidebar a { color: #1ea4bd; }
-  #sidebar a:hover { color: #222; }
+#sidebar a { color: #1ea4bd; }
+#sidebar a:hover { color: #222; }
 
-  #sidebar .nav_links { 
-    padding-top: 14px;
-    border-top: 20px solid #f4f4f4;
-  }
+#sidebar .nav_links { 
+  padding-top: 14px;
+  border-top: 20px solid #f4f4f4;
+}
 
 
 /*-- BLOG --*/
