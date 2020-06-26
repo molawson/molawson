@@ -1,6 +1,13 @@
+app_root = "/srv/apps/molawson/current"
+
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
+
+pid "#{app_root}/tmp/pids/unicorn.pid"
+
+stderr_path "#{app_root}/log/unicorn.stderr.log"
+stdout_path "#{app_root}/log/unicorn.stdout.log"
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
